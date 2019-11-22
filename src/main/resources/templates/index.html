@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js" ></script>
+</head>
+<body>
+<label for="con"></label>
+<textarea id="con" ></textarea>
+<input id="btn" type="button" value="上传数据" >
+
+<script type="application/javascript" >
+    $(function () {
+        $("#btn").click(function() {
+            var con = $("#con").val();
+            $.ajax({
+                url: "/upload/addData",
+                contentType: "application/json; charset=utf8",
+                type: "post",
+                data: con,
+                dataType: "json",
+                success: function(res) {
+                    console.log(res);
+                    if (res.status === 200) {
+                        alert("成功添加 "+res.data+" 数据");
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+</body>
+</html>
