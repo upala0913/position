@@ -21,7 +21,7 @@ public class AddController {
     private AddDataService addDataService;
 
     /**
-     * 上传文件
+     * 导入数据
      * @return 返回值
      */
     @RequestMapping(value = "/addData", method = RequestMethod.POST)
@@ -31,6 +31,11 @@ public class AddController {
         return addDataService.addData(map);
     }
 
+    /**
+     * 查询数据
+     * @param param 入参
+     * @return 返回值
+     */
     @RequestMapping(value = "/queryProvince", method = RequestMethod.POST)
     public Map<String, Object> queryProvince(@RequestBody String param) {
         Map<String, Object> data = JsonUtils.stringToJson(param);

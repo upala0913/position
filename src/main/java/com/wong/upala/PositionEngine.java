@@ -4,7 +4,8 @@ import lombok.extern.log4j.Log4j2;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * Hello world!
@@ -15,7 +16,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication
 @Log4j2
 @MapperScan("com.wong.upala.mapper")
-public class PositionEngine {
+public class PositionEngine extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
 
@@ -24,4 +25,10 @@ public class PositionEngine {
         log.info("ended !!!");
 
     }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(PositionEngine.class);
+    }
+
 }

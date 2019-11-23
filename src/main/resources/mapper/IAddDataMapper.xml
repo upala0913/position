@@ -4,9 +4,9 @@
 <mapper namespace="com.wong.upala.mapper.AddDataMapper" >
 
     <insert id="addData" useGeneratedKeys="true" keyProperty="id" >
-        INSERT INTO prov_city_town (`name`, parentid, parentname, areacode, zipcode, depth) VALUES
+        INSERT INTO prov_city_town (`name`, parentid, parentname, areacode, zipcode, depth, ident) VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.name},#{item.parentid},#{item.parentname},#{item.areacode},#{item.zipcode},#{item.depth})
+            (#{item.name},#{item.parentid},#{item.parentname},#{item.areacode},#{item.zipcode},#{item.depth},#{item.id})
         </foreach>
     </insert>
 
