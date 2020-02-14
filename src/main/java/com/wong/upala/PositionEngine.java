@@ -7,11 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-/**
- * Hello world!
- *
- * @author upala
- */
+/********************************
+ *  @program imageEngine
+ *  @author upala
+ *  @version 0.0.1
+ *  @since 2019-11-05 15:59
+ *  @description 启动类
+ ********************************/
 
 @SpringBootApplication
 @Log4j2
@@ -19,11 +21,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class PositionEngine extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-
         log.info("start !!!");
         SpringApplication.run(PositionEngine.class, args);
         log.info("ended !!!");
-
     }
 
     @Override

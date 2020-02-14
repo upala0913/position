@@ -8,9 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-/**
- * @author upala
- */
+/********************************
+ *  @program imageEngine
+ *  @author upala
+ *  @version 0.0.1
+ *  @since 2019-11-05 15:59
+ *  @description 添加信息controller类
+ ********************************/
 
 @RequestMapping("/upload")
 @RestController

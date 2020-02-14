@@ -7,7 +7,7 @@ import lombok.Data;
  *  @author upala
  *  @version 0.0.1
  *  @since 2019-11-22 11:53
- *  @description
+ *  @description 城市信息实体类
  ********************************/
 
 @Data
