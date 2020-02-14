@@ -3,9 +3,9 @@ package com.wong.upala.controller;
 import com.wong.upala.service.AddDataService;
 import com.wong.upala.utils.JsonUtils;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 /********************************
@@ -21,7 +21,7 @@ import java.util.Map;
 @Log4j2
 public class AddController {
 
-    @Autowired
+    @Resource
     private AddDataService addDataService;
 
     /**

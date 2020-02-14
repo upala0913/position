@@ -1,13 +1,14 @@
 package com.wong.upala.service.impl;
 
+import com.wong.upala.commons.FinalVariable;
 import com.wong.upala.entity.Position;
 import com.wong.upala.mapper.AddDataMapper;
 import com.wong.upala.service.AddDataService;
 import com.wong.upala.utils.JsonUtils;
 import com.wong.upala.utils.ResultUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ import java.util.Map;
 @Service
 public class AddDataServiceImpl implements AddDataService {
 
-    @Autowired
+    @Resource
     private AddDataMapper addDataMapper;
 
     /**
@@ -35,11 +36,10 @@ public class AddDataServiceImpl implements AddDataService {
     public Map<String, Object> addData(Map<String, Object> param) {
         String result = param.get("result").toString();
         List<Position> positions = JsonUtils.strArrayToJson(result);
-        System.out.println(positions);
         Integer res = addDataMapper.addData(positions);
         if (res <= 0)
-            return ResultUtils.resultData("添加数据失败", 1000, null);
-        return ResultUtils.resultData("添加数据成功", 200, res);
+            return ResultUtils.resultFailData("添加数据失败", FinalVariable.RESULT_FAIL_CODE);
+        return ResultUtils.resultSuccessData("添加数据成功", FinalVariable.RESULT_SUCCESS_CODE, res);
     }
 
     /**
@@ -51,8 +51,8 @@ public class AddDataServiceImpl implements AddDataService {
     public Map<String, Object> queryProvince(Integer parentId) {
         List<LinkedHashMap> linkedHashMaps = addDataMapper.queryProvince(parentId);
         if (linkedHashMaps == null || linkedHashMaps.size() == 0)
-            return ResultUtils.resultData("没有该数据", 1001, null);
-        return ResultUtils.resultData("查询数据成功", 200, linkedHashMaps);
+            return ResultUtils.resultFailData("数据不存在", FinalVariable.RESULT_FAIL_CODE);
+        return ResultUtils.resultSuccessData("查询数据成功", FinalVariable.RESULT_SUCCESS_CODE, linkedHashMaps);
     }
 
 }

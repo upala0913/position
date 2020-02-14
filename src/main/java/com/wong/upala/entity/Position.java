@@ -13,12 +13,19 @@ import lombok.Data;
 @Data
 public class Position {
 
+    // 城市标识码
     private int id;
+    // 城市名称
     private String name;
+    // 城市上一级标识码
     private int parentid;
+    // 城市上一级名称
     private String parentname;
+    // 城市区域标识码
     private String areacode;
+    // 城市标准标识码
     private String zipcode;
+    // 城市所属
     private int depth;
 
 }
