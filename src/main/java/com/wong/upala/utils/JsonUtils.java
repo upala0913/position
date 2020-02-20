@@ -8,6 +8,7 @@ import com.wong.upala.entity.Position;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /********************************
  *  @program position
@@ -38,6 +39,10 @@ public class JsonUtils {
      */
     public static List<Position> strArrayToJson(String param) {
         return JSON.parseArray(param, Position.class);
+    }
+
+    public static String getUUID() {
+        return UUID.randomUUID().toString().replaceAll("-", "");
     }
 
 }
